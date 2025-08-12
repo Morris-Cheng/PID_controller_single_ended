@@ -97,11 +97,12 @@ module PI_controller(
             // Compute intermediate values based on current state
             if(filter_enable == 1) begin
                 next_error = filtered_input_signal - current_value;
+                $display("Filter was enabled");
             end else begin
                 next_error = input_value - current_value;
             end
             
-            next_error = input_value - current_value;
+//            next_error = input_value - current_value;
 
             next_integral = (integral + next_error);
             next_derivative = (next_error - previous_error);

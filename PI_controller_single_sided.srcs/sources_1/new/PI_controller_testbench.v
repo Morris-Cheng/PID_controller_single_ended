@@ -59,11 +59,11 @@ module PI_controller_testbench();
         reference_value = 20;
         measured_height = 20;
         rst = 1;
-        filter = 0;
+        filter = 1;
         #30;
         rst = 0;
         #100;
-//        measured_height = 200;
+        measured_height = 200;
 //        #100;
 //        measured_height = 50;
 //        #100;
@@ -73,7 +73,7 @@ module PI_controller_testbench();
     // File I/O
     initial begin
         // Open the file (change name/path as needed)
-        file = $fopen("output_values.csv", "w");
+        file = $fopen("simulation_output_0811_with_filter.csv", "w");
 
         // Write CSV header
         $fwrite(file, "measured_height, control_signal, filtered_value\n");
@@ -82,7 +82,7 @@ module PI_controller_testbench();
         @(negedge rst);  // wait for reset deassertion
         repeat (1000) begin
             @(posedge clk);
-            $fwrite(file, "%0d,%0d,0%d\n", measured_height, control_signal, filtered_signal);
+            $fwrite(file, "%0d,%0d,%0d\n", measured_height, control_signal, filtered_signal);
         end
 
         // Close the file
