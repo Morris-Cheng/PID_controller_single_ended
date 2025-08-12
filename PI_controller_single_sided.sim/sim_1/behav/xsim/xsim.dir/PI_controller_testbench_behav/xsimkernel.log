@@ -1,4 +1,0 @@
-Running: xsim.dir/PI_controller_testbench_behav/xsimk.exe -simmode gui -wdb PI_controller_testbench_behav.wdb -simrunnum 0 -socket 51602
-Design successfully loaded
-Design Loading Memory Usage: 10876 KB (Peak: 10876 KB)
-Design Loading CPU Usage: 46 ms
